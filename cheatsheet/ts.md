@@ -29,7 +29,7 @@ Table of Contents
       * [Type Aliases](#type-aliases)
       * [Function Return Types](#function-return-types)
          * [Function as Types](#function-as-types)
-      * [Unknwon Type](#unknwon-type)
+      * [Unknown Type](#unknown-type)
       * [Never Type](#never-type)
    * [TS Compiler](#ts-compiler)
       * [Command Options](#command-options)
@@ -43,7 +43,7 @@ Table of Contents
          * [Inheritance](#inheritance)
          * [Getters and Setters](#getters-and-setters)
          * [Static Properties and Methods](#static-properties-and-methods)
-         * [Absract Classes](#absract-classes)
+         * [Abstract Classes](#abstract-classes)
          * [Private Constructors](#private-constructors)
       * [Interfaces](#interfaces)
          * [Interfaces with Classes](#interfaces-with-classes)
@@ -163,7 +163,7 @@ TypeScript adds:
 * Next-gen JS Features compiled down for older Browsers
 * More features such as Interfaces or Generics
 * Meta-Programming Features like Decorators
-* RIch Configuration Options
+* Rich Configuration Options
 * Modern tooling that helps even non TypeScript Projects (especially in IDEs).
 
 
@@ -210,7 +210,7 @@ const result = add(n1, n2);
 
 ### Type Inference
 
-TypScript is smart enough to recognize some non-explicit variable types such as
+TypeScript is smart enough to recognize some non-explicit variable types such as
 
 ```typescript
 let number1 = 5; // number1: number
@@ -393,14 +393,14 @@ const temp = () => number;
 
 This can also be useful to specify ``callbacks``.
 
-## Unknwon Type
+## Unknown Type
 
 Unknown is more restrictive than `any`.
 
 For example we CAN'T do:
 
 ```typescript
-let a: unknwown;
+let a: unknown;
 let b: string;
 
 a = 5;
@@ -501,7 +501,7 @@ class Department {
 }
 ```
 
-Properties are now accessble only in the class (not in [child](#Inheritance) classes).
+Properties are now accessible only in the class (not in [child](#Inheritance) classes).
 
 In order to share `private` properties to child classes thru [Inheritance](#Inheritance) use the `protected` keyword.
 
@@ -872,7 +872,7 @@ interface Person {
 ```typescript
 type Admin = {
     name: string;
-    priviliges: string[];
+    privileges: string[];
 };
 
 type Employee = {
@@ -913,7 +913,7 @@ In case of combined types:
 ```typescript
 type Admin = {
     name: string;
-    priviliges: string[];
+    privileges: string[];
 };
 
 type Employee = {
@@ -925,8 +925,8 @@ type UnknownEmp = Admin | Employee; // admin OR employee
 
 function printEmpInfo(emp: UnknownEmp) {
     console.log(emp.name);
-    if ('priviliges' in emp) { // type guard
-        console.log(emp.priviliges);
+    if ('privileges' in emp) { // type guard
+        console.log(emp.privileges);
     }
 }
 ```
@@ -985,7 +985,7 @@ const inputEl = document.getElementById('user-input')! as HTMLInputElement;
 
 ## Index Properties
 
-We use them to buld flexible interfaces.
+We use them to build flexible interfaces.
 
 ```typescript
 interface ErrorCOntainer { // flexible container
@@ -1065,7 +1065,7 @@ An array is actually a `generic`.
 
 A generic type is a type which is kinda connected with some other types and is really flexible in terms of what type the other type is. 
 
-The `Array` type doesn't really care about what data yuo store in it.
+The `Array` type doesn't really care about what data you store in it.
 
 ```typescript
 const names: Array<string> = []; // same thing as string[]
@@ -1115,7 +1115,7 @@ merged.age; // TS ERROR, typescript doesn't know the properties (we could do TYP
 ```
 
 ```typescript
-function merge<T, U>(objA: T, objB: U) { //T and U are cusotm identifiers 
+function merge<T, U>(objA: T, objB: U) { //T and U are custom identifiers 
     return Object.assign(objA, objB);
 }
 
@@ -1145,7 +1145,7 @@ function merge<T extends object, U extends object>(objA: T, objB: U) { //T and U
 }
 ```
 
-So we have imporved the merge function by reducing unwanted behaviours such as passing just a number to the `merge` function. 
+So we have improved the merge function by reducing unwanted behaviours such as passing just a number to the `merge` function. 
 
 We can also improve this by creating custom `interfaces` and using them with `extends ...` if we only care about certain params properties.
 
@@ -1651,4 +1651,4 @@ import { Request, Response, NextFunction } from 'express';
 
 # Credits
 
-Extended cheatsheet made by Leonardo Folgon and made by following various resourches on the internet. 
+Extended cheatsheet made by Leonardo Folgon and made by following various resources on the internet. 
